@@ -44,6 +44,10 @@ try
                 Thread.Sleep(300);
             }
         }
+        else
+        {
+            Console.WriteLine("No data found");
+        }
 
     }
 }
