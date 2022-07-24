@@ -18,6 +18,7 @@
 
   <ItemGroup>
     <ProjectReference Include="..\SaasInventory.Common\SaasInventory.Common.csproj" />
+    <ProjectReference Include="..\SaasInventory.Data\SaasInventory.Data.csproj" />
     <ProjectReference Include="..\SaasInventory.Services\SaasInventory.Services.csproj" />
   </ItemGroup>
 
