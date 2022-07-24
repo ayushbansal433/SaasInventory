@@ -15,8 +15,8 @@ namespace SaasInventory.Common.Classes
 
     public class Product
     {
-        [JsonProperty("title")]
         public string Name { get; set; }
+        public string Title { get; set; }
         public List<string> Categories { get; set; }
         public string Twitter { get; set; }
 

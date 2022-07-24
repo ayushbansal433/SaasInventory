@@ -1,4 +1,5 @@
 ﻿using Microsoft.Extensions.DependencyInjection;
+using Newtonsoft.Json;
 using SaasInventory.Common.Classes;
 using SaasInventory.Services.Classes;
 using SaasInventory.Services.Interfaces;
@@ -23,18 +24,24 @@ collection.AddTransient<Func<FileType, IFileParser>>(serviceProvider => key =>
 
 try
 {
-    string input = Console.ReadLine();
+    var input = args.AsQueryable().ToList();
 
-    if (String.IsNullOrEmpty(input) || input.Split(" ").Length != 2)
+    if (input.Count != 2)
         throw new Exception("Please supply valid parameters");
     else
     {
-        var inputArray = input.Split(" ");
-        
         SaasInventoryParser inventoryParser = new SaasInventoryParser();
-        var parsedData = inventoryParser.Products(inputArray[0], inputArray[1]);
-    }
+        var parsedData = inventoryParser.Products(input[0].Trim(), input[1].Trim());
+        if (parsedData != null && parsedData.Products.Count > 0)
+        {
+            foreach (Product item in parsedData.Products)
+            {
+                Console.WriteLine("importing: " + (string.IsNullOrEmpty(item.Name) ? "Title: " + item.Title : "Name: " + item.Name) + "; " + (item.Categories.Count > 0 ? "Categories: " + string.Join(",", item.Categories) : "Tags: " + item.Tags) + (!string.IsNullOrEmpty(item.Twitter) ? "; Twitter:" + item.Twitter : ""));
+                Thread.Sleep(300);
+            }
+        }
 
+    }
 }
 catch (Exception ex)
 {
@@ -48,7 +55,6 @@ if (serviceProvider is IDisposable)
 public class SaasInventoryParser
 {
     private Func<FileType, IFileParser> _fileParser;
-
     public Inventory Products(string fileName, string path)
     {
 
@@ -57,23 +63,21 @@ public class SaasInventoryParser
         {
             if (path.ToLower().Contains(".json"))
             {
-                _fileParser = new Func<FileType, IFileParser>(IFileParser (FileType) => new JsonFileParser()); var fileParser = _filePars
-            e.json);
-                products = fileParser.ParseProd
-
-
-                else if
-            wer().Contains(".yaml"))
-                {
-                    _fileParser = new Func<FileType, IFileParser>(IFileParser (FileType) => new YamlFileParser());
-                    var fileParser = _fileParser(FileType.yaml);
-                    products = fileParser.ParseProducts(r);
-                }
-                else
-                {
-                    return null;
-                }
+                _fileParser = new Func<FileType, IFileParser>(IFileParser (FileType) => new JsonFileParser());
+                var fileParser = _fileParser(FileType.json);
+                products = fileParser.ParseProducts(r);
             }
-            return products;
+            else if (path.ToLower().Contains(".yaml"))
+            {
+                _fileParser = new Func<FileType, IFileParser>(IFileParser (FileType) => new YamlFileParser());
+                var fileParser = _fileParser(FileType.yaml);
+                products = fileParser.ParseProducts(r);
+            }
+            else
+            {
+                return null;
+            }
         }
+        return products;
     }
+}
