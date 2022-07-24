@@ -40,7 +40,7 @@ try
         {
             foreach (Product item in parsedData.Products)
             {
-                Console.WriteLine("importing: " + (string.IsNullOrEmpty(item.Name) ? "Title: " + item.Title : "Name: " + item.Name) + "; " + (item.Categories.Count > 0 ? "Categories: " + string.Join(",", item.Categories) : "Tags: " + item.Tags) + (!string.IsNullOrEmpty(item.Twitter) ? "; Twitter:" + item.Twitter : ""));
+                Console.WriteLine("importing: " + (string.IsNullOrEmpty(item.Name) ? "Title: " + item.Title : "Name: " + item.Name) + "; " + (item.Categories?.Count > 0 ? "Categories: " + string.Join(",", item.Categories) : "Tags: " + item.Tags) + (!string.IsNullOrEmpty(item.Twitter) ? "; Twitter:" + item.Twitter : ""));
                 Thread.Sleep(300);
             }
         }

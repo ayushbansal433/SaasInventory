@@ -10,28 +10,34 @@ namespace SaasInventory
         private Func<FileType, IFileParser> _fileParser;
         public Inventory Products(string fileName, string path)
         {
-
-            Inventory products = new Inventory();
-            using (StreamReader r = new StreamReader(path))
+            try
             {
-                if (path.ToLower().Contains(".json"))
+                Inventory products = new Inventory();
+                using (StreamReader r = new StreamReader(path))
                 {
-                    _fileParser = new Func<FileType, IFileParser>(IFileParser (FileType) => new JsonFileParser());
-                    var fileParser = _fileParser(FileType.json);
-                    products = fileParser.ParseProducts(r);
+                    if (path.ToLower().Contains(".json"))
+                    {
+                        _fileParser = new Func<FileType, IFileParser>(IFileParser (FileType) => new JsonFileParser());
+                        var fileParser = _fileParser(FileType.json);
+                        products = fileParser.ParseProducts(r);
+                    }
+                    else if (path.ToLower().Contains(".yaml"))
+                    {
+                        _fileParser = new Func<FileType, IFileParser>(IFileParser (FileType) => new YamlFileParser());
+                        var fileParser = _fileParser(FileType.yaml);
+                        products = fileParser.ParseProducts(r);
+                    }
+                    else
+                    {
+                        return null;
+                    }
                 }
-                else if (path.ToLower().Contains(".yaml"))
-                {
-                    _fileParser = new Func<FileType, IFileParser>(IFileParser (FileType) => new YamlFileParser());
-                    var fileParser = _fileParser(FileType.yaml);
-                    products = fileParser.ParseProducts(r);
-                }
-                else
-                {
-                    return null;
-                }
+                return products;
             }
-            return products;
+            catch (Exception ex)
+            {
+                throw ex;
+            }
         }
     }
 }
