@@ -3,7 +3,13 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.1.32414.318
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SaasInventory", "SaasInventory\SaasInventory.csproj", "{CBD737CB-9E67-4A37-9F42-52C463798BBB}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SaasInventory", "SaasInventory\SaasInventory.csproj", "{CBD737CB-9E67-4A37-9F42-52C463798BBB}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SaasInventory.Services", "SaasInventory.Services\SaasInventory.Services.csproj", "{8850DD6D-41F2-43D8-AFE5-E85D621B5AE4}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SaasInventory.Common", "SaasInventory.Common\SaasInventory.Common.csproj", "{4DB6F2A7-9BE2-49E9-9CA2-7D1FDA3A4F4A}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SaasInventory.Data", "SaasInventory.Data\SaasInventory.Data.csproj", "{6ECF583B-94C4-4556-A0BF-FD53A1A1FA3A}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -15,6 +21,18 @@ Global
 		{CBD737CB-9E67-4A37-9F42-52C463798BBB}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{CBD737CB-9E67-4A37-9F42-52C463798BBB}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{CBD737CB-9E67-4A37-9F42-52C463798BBB}.Release|Any CPU.Build.0 = Release|Any CPU
+		{8850DD6D-41F2-43D8-AFE5-E85D621B5AE4}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{8850DD6D-41F2-43D8-AFE5-E85D621B5AE4}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{8850DD6D-41F2-43D8-AFE5-E85D621B5AE4}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{8850DD6D-41F2-43D8-AFE5-E85D621B5AE4}.Release|Any CPU.Build.0 = Release|Any CPU
+		{4DB6F2A7-9BE2-49E9-9CA2-7D1FDA3A4F4A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{4DB6F2A7-9BE2-49E9-9CA2-7D1FDA3A4F4A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{4DB6F2A7-9BE2-49E9-9CA2-7D1FDA3A4F4A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{4DB6F2A7-9BE2-49E9-9CA2-7D1FDA3A4F4A}.Release|Any CPU.Build.0 = Release|Any CPU
+		{6ECF583B-94C4-4556-A0BF-FD53A1A1FA3A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{6ECF583B-94C4-4556-A0BF-FD53A1A1FA3A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{6ECF583B-94C4-4556-A0BF-FD53A1A1FA3A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{6ECF583B-94C4-4556-A0BF-FD53A1A1FA3A}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
