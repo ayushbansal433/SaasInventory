@@ -9,7 +9,9 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SaasInventory.Services", "S
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SaasInventory.Common", "SaasInventory.Common\SaasInventory.Common.csproj", "{4DB6F2A7-9BE2-49E9-9CA2-7D1FDA3A4F4A}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SaasInventory.Data", "SaasInventory.Data\SaasInventory.Data.csproj", "{6ECF583B-94C4-4556-A0BF-FD53A1A1FA3A}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SaasInventory.Data", "SaasInventory.Data\SaasInventory.Data.csproj", "{6ECF583B-94C4-4556-A0BF-FD53A1A1FA3A}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SaasInventory.Test", "SaasInventory.Test\SaasInventory.Test.csproj", "{0D6337A5-FAD1-4E39-A84A-19898927CB01}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -33,6 +35,10 @@ Global
 		{6ECF583B-94C4-4556-A0BF-FD53A1A1FA3A}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{6ECF583B-94C4-4556-A0BF-FD53A1A1FA3A}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{6ECF583B-94C4-4556-A0BF-FD53A1A1FA3A}.Release|Any CPU.Build.0 = Release|Any CPU
+		{0D6337A5-FAD1-4E39-A84A-19898927CB01}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{0D6337A5-FAD1-4E39-A84A-19898927CB01}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{0D6337A5-FAD1-4E39-A84A-19898927CB01}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{0D6337A5-FAD1-4E39-A84A-19898927CB01}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
